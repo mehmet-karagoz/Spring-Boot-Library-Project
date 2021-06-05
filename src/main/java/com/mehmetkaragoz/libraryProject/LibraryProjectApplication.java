@@ -1,14 +1,12 @@
 package com.mehmetkaragoz.libraryProject;
 
-import java.util.List;
-
-import com.mehmetkaragoz.libraryProject.model.Book;
-import com.mehmetkaragoz.libraryProject.repository.BookRepository;
-
-import org.springframework.boot.CommandLineRunner;
+// import java.util.List;
+// import com.mehmetkaragoz.libraryProject.model.Book;
+// import com.mehmetkaragoz.libraryProject.repository.BookRepository;
+// import org.springframework.context.annotation.Bean;
+// import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class LibraryProjectApplication {
@@ -19,7 +17,7 @@ public class LibraryProjectApplication {
 		
 	}
 
-	@Bean
+	/*@Bean
 	CommandLineRunner commandLineRunner(BookRepository bookrepo) {
 		return args -> {
 			Book book1 = new Book("Ataturk", "Ilber Ortayli", 35);
@@ -34,7 +32,7 @@ public class LibraryProjectApplication {
 			System.out.println("Number of book: " + bookrepo.count());
 
 			bookrepo.updateBookTitleById(5, "Delikanli");
-			
+
 			System.out.println("Select all books...");
 			List<Book> listBooks = bookrepo.findAll();
 			listBooks.forEach(System.out::println);
@@ -44,8 +42,6 @@ public class LibraryProjectApplication {
 
 			bookrepo.findBookByTitle("Mustafa").forEach(System.out::println);
 
-			
-
 		};
-	}
+	}*/
 }
