@@ -33,6 +33,8 @@ public class LibraryProjectApplication {
 			bookrepo.saveAll(List.of(book1, book2, book3, book4, book5));
 			System.out.println("Number of book: " + bookrepo.count());
 
+			bookrepo.updateBookTitleById(5, "Delikanli");
+			
 			System.out.println("Select all books...");
 			List<Book> listBooks = bookrepo.findAll();
 			listBooks.forEach(System.out::println);
@@ -41,6 +43,9 @@ public class LibraryProjectApplication {
 			() -> System.out.println("Can not find any book with 2 id"));
 
 			bookrepo.findBookByTitle("Mustafa").forEach(System.out::println);
+
+			
+
 		};
 	}
 }
