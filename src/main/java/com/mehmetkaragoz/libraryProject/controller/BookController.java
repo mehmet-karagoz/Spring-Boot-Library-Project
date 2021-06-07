@@ -34,7 +34,7 @@ public class BookController {
 
     @GetMapping(path = "{isbn}")
     public Book getBookByIsbn(@PathVariable("isbn") long isbn) {
-        return bookRepo.findById(isbn).get();
+        return bookRepo.findById(isbn).orElse(null);
     }
 
     @PostMapping
