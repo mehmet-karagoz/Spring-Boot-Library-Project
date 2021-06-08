@@ -6,12 +6,12 @@ import javax.transaction.Transactional;
 
 //import java.util.Optional;
 import com.mehmetkaragoz.libraryProject.model.Book;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface BookRepository extends JpaRepository<Book, Long>{
+public interface BookRepository extends CrudRepository<Book, Long>{
 
     //this is not working bc title is not unique
     // @Query("SELECT b FROM Book b WHERE b.title = ?1")
