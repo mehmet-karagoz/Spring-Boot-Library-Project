@@ -3,7 +3,7 @@ package com.mehmetkaragoz.libraryProject.controller;
 import java.util.List;
 
 import com.mehmetkaragoz.libraryProject.model.Book;
-import com.mehmetkaragoz.libraryProject.repository.BookRepository;
+import com.mehmetkaragoz.libraryProject.service.BookService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,36 +20,36 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookController {
     
 
-    private final BookRepository bookRepo;
+   private final BookService bookService;
 
     @Autowired
-    public BookController(BookRepository bookRepo) {
-        this.bookRepo = bookRepo;
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
     }
 
     @GetMapping
     public List<Book> getAllBooks() {
-        return bookRepo.findAll();
+        return bookService.getAllBooks();
     }
 
     @GetMapping(path = "{isbn}")
     public Book getBookByIsbn(@PathVariable("isbn") long isbn) {
-        return bookRepo.findById(isbn).orElse(null);
+        return bookService.getById(isbn);
     }
 
     @PostMapping
     public void addNewBook(@RequestBody Book book) {
-        bookRepo.save(book);
+        bookService.addBook(book);
     }
 
     @DeleteMapping(path = "{isbn}")
     public void deleteBookByIsbn(@PathVariable("isbn") long isbn) {
-        bookRepo.deleteById(isbn);
+        bookService.deleteBookById(isbn);
     }
 
     @PutMapping(path = "{isbn}")
     public void updateBookTitleByIsbn(
         @PathVariable("isbn") long isbn,@RequestBody String title) {
-        bookRepo.updateBookTitleById(isbn, title);
+            bookService.updateBookTitleById(isbn, title);
     }
 }
