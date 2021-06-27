@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library API</title>
-
+  </head>
+  <body>
     <p>Welcome to Library</p>
 
     <a href="api/v1/books">GET ALL BOOKS</a>
-</head>
-<body>
-    
-</body>
+
+    <form action="" method="GET">
+      Enter id : <input type="number" name="id" id="isbn" />
+      <a id="link" href="" onclick="getBookByIsbn();">SHOW</a>
+    </form>
+
+    <div id="book"></div>
+
+    <script>
+      function getBookByIsbn() {
+        var isbn = document.getElementById("isbn").value;
+
+        var newHref = "api/v1/books/" + isbn;
+
+        var myLink = document.getElementById("link");
+
+        myLink.setAttribute("href", newHref);
+        return false;
+      }
+    </script>
+  </body>
 </html>
